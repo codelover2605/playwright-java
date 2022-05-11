@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+}
+
+group 'playwright-java'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Google
+    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'com.google.inject:guice:5.1.0'
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+    // Lombok
+    implementation 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // Utils
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'org.awaitility:awaitility:4.2.0'
+
+    // Playwright + TestNg + Assertion Library
+    implementation 'com.microsoft.playwright:playwright:1.21.0'
+    implementation 'org.assertj:assertj-core:3.22.0'
+    implementation 'org.testng:testng:7.5'
+}
+
+tasks.withType(Test) {
+    systemProperties = [
+            browser : System.getProperty('browser', 'chrome'),
+            headless: System.getProperty('headless', 'false'),
+    ]
+}
+
+test {
+    useTestNG() {
+        parallel = "methods"
+        threadCount = 2
+    }
+}
