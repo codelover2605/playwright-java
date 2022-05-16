@@ -2,6 +2,7 @@ package com.playwright.java.examples.tests;
 
 import com.playwright.java.examples.pages.LoginPage;
 import com.playwright.java.examples.pages.ProductsPage;
+import com.playwright.java.library.testbases.WebTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

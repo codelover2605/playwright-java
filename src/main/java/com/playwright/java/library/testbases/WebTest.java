@@ -1,11 +1,11 @@
-package com.playwright.java.examples.tests;
+package com.playwright.java.library.testbases;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
-import com.playwright.java.examples.pages.WebPage;
+import com.playwright.java.library.testbases.WebPage;
 import com.playwright.java.library.modules.PlaywrightModule;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;

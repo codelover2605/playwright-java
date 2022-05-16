@@ -1,4 +1,4 @@
-package com.playwright.java.examples.pages;
+package com.playwright.java.component.examples.pages;
 
 import com.microsoft.playwright.Page;
 import com.playwright.java.library.testbases.WebPage;
@@ -14,13 +14,13 @@ public class LoginPage extends WebPage {
   }
 
   public <T extends WebPage> T login(String userName, String password, Class<T> nextPage) {
-    page.fill(userNameSelector, userName);
-    page.fill(passwordSelector, password);
-    page.click(loginButtonSelector);
+    textBox(userNameSelector).setText(userName);
+    textBox(passwordSelector).setText(password);
+    element(loginButtonSelector).click(true);
     return createWebPageInstance(nextPage);
   }
 
   public String getErrorMessage() {
-    return page.textContent("[data-test='error']");
+    return element("[data-test='error']").getText();
   }
 }

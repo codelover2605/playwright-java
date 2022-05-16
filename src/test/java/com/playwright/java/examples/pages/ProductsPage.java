@@ -1,6 +1,7 @@
 package com.playwright.java.examples.pages;
 
 import com.microsoft.playwright.Page;
+import com.playwright.java.library.testbases.WebPage;
 import org.testng.Assert;
 
 public class ProductsPage extends WebPage {
